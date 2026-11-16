@@ -2,7 +2,7 @@
   "name": "cairn",
   "version": "0.1.0",
   "private": true,
-  "description": "Ask the W3C accessibility standards. Retrieval-augmented answers in Chinese or English, every sentence quoted and checked against the W3C text.",
+  "description": "A desk that answers from an organisation's own published rules and quotes them word for word. This instance holds Monash University's public pages for students, in English or Chinese.",
   "type": "module",
   "engines": {
     "node": ">=22"

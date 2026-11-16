@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { SegmentedControl, TextInput } from '@mantine/core'
 import { IconExternalLink } from '@tabler/icons-react'
 import Shell from '../components/Shell'
-import { api } from '../api'
+import { api, IS_STATIC } from '../api'
 import { getCampus } from '../campus'
 import type { Gaps, Library } from '../types'
 
@@ -35,6 +35,9 @@ export default function LibraryPage() {
   const locale = i18n.language === 'zh' ? 'zh-CN' : 'en-GB'
   // Chinese dates get a space between digits and 年月日, as the rest of the copy does (chinese-copywriting-guidelines).
   const fmt = (iso: string) => new Date(iso).toLocaleDateString(locale, { year: 'numeric', month: 'short', day: 'numeric' }).replace(/(\d)([年月日])/g, '$1 $2').replace(/([年月])(\d)/g, '$1 $2')
+  // The online demo shows the gaps asked in the interface's own language; a live desk lists every gap as asked.
+  const zh = /[㐀-鿿]/
+  const gapList = (gaps?.gaps ?? []).filter((g) => !IS_STATIC || zh.test(g.question) === (i18n.language === 'zh'))
 
   return (
     <Shell page="library">
@@ -94,10 +97,10 @@ export default function LibraryPage() {
         <div className="cn-page-head" style={{ marginBottom: 0 }}>
           <h2 id="gaps-title" className="cn-h2">{t('library.gaps.title')}</h2>
           <p className="lead">{t('library.gaps.lead')}</p>
-          {gaps && <p className="small num">{t('library.gaps.stats', { questions: gaps.questions, answered: gaps.answered })}</p>}
+          {gaps && <p className="small num">{t(IS_STATIC ? 'library.gaps.statsStatic' : 'library.gaps.stats', { questions: gaps.questions, answered: gaps.answered })}</p>}
         </div>
-        {gaps && gaps.gaps.length === 0 && <p>{t('library.gaps.empty')}</p>}
-        {gaps && gaps.gaps.length > 0 && (
+        {gaps && gapList.length === 0 && <p>{t('library.gaps.empty')}</p>}
+        {gaps && gapList.length > 0 && (
           <div className="cn-scroll" tabIndex={0} role="region" aria-label={t('library.gaps.tableLabel')}>
             <table className="cn-table">
               <thead>
@@ -109,7 +112,7 @@ export default function LibraryPage() {
                 </tr>
               </thead>
               <tbody>
-                {gaps.gaps.map((g) => (
+                {gapList.map((g) => (
                   <tr key={g.question}>
                     <td>{g.question}</td>
                     <td className="cn-code num">{g.asked}</td>

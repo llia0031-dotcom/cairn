@@ -54,7 +54,7 @@ Build tools (not shipped): Vite 8, TypeScript 7, PostCSS with postcss-preset-man
 
 | Guidance | License | Notice |
 | --- | --- | --- |
-| [Hallmark](https://github.com/hallmark-design/hallmark), theme "Refract" | MIT | Copyright (c) 2026 Hallmark contributors |
+| [Hallmark](https://github.com/Nutlope/hallmark), theme "Refract" | MIT | Copyright (c) 2026 Hallmark contributors |
 | [Emil Kowalski's design engineering skills](https://github.com/emilkowalski/skills) | MIT | Copyright (c) 2026 Emil Kowalski |
 | [Impeccable](https://github.com/pbakaus/impeccable) | Apache-2.0 | Copyright (c) Paul Bakaus |
 | [UX Writing skill](https://github.com/content-designer/ux-writing-skill) | MIT | Copyright (c) 2026 Christopher Greer |

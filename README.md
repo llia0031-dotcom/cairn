@@ -8,9 +8,9 @@ Demo video (2 min 25 s): https://youtu.be/0OJ8MqxsqYE
 
 This instance holds **Monash University's public pages for students**: extensions and special consideration, deferred and supplementary assessments, eExams, withdrawing, intermission and fees, census and principal dates, and Disability Support Services, for the Australian, Malaysian and Indonesian campuses. You pick your campus first, then ask.
 
-An entry to LaunchPad Hacks 2026 by Jason Liang and ZIzi821.
+An entry to LaunchPad Hacks 2026 by Liang Liyuan and ZIzi821.
 
-**Online demo:** https://jason-d-e.github.io/cairn/ shows the cover, the library, the evaluation and fourteen real answers recorded on 10 November 2026. To ask your own question, run Cairn on your machine (below).
+**Online demo:** https://jason-d-e.github.io/cairn/ shows the cover, the library, the evaluation and fourteen questions, each answered by both engines on 10 November 2026 (28 recorded answers). To ask your own question, run Cairn on your machine (below).
 
 ## What it does
 
@@ -19,7 +19,7 @@ An entry to LaunchPad Hacks 2026 by Jason Liang and ZIzi821.
 - **Key facts marked.** Times (11.55pm), days, dates and amounts in the answer are highlighted only when a verified quote backs them up, and repeated as pills under the sentence with the page they come from.
 - **A trace under every answer.** The English search text (for a Chinese question), the passages retrieved, their rerank scores and the campus each applies to.
 - **A library that knows its gaps.** All pages by topic with a campus filter, and every question the desk could not answer.
-- **An evaluation page.** Retrieval metrics over 45 student questions, for seven retrieval methods.
+- **An evaluation page.** Retrieval metrics over 45 written questions, for seven retrieval methods.
 
 ## Two ways to answer
 
@@ -38,7 +38,7 @@ An entry to LaunchPad Hacks 2026 by Jason Liang and ZIzi821.
 
 ## Measured results
 
-These are measurements, not accuracy claims. The 45 evaluation questions were written by the team the way students ask them; 20 real student questions were added on 11 November 2026 and are reported separately. No users have tested the product itself yet.
+The 45 evaluation questions were written by the team the way students ask them; 20 real student questions were added on 11 November 2026 and are reported separately. No users have tested the product itself yet.
 
 **Retrieval evaluation**, 45 questions (25 English, 20 Chinese), each labelled with the Monash page that answers it, 10 November 2026 (`npm run eval:retrieval`):
 
@@ -52,9 +52,9 @@ These are measurements, not accuracy claims. The 45 evaluation questions were wr
 | RRF + rerank | 28 | 39 | 42 | 0.754 |
 | **Translate + vector + rerank (in use)** | **34** | **41** | **44** | **0.839** |
 
-The translation step matters for Chinese: with it, 19 of the 20 Chinese questions have the right page in the top five (MRR 0.858); without it, 18 (MRR 0.685). The four questions not in the top three are listed in `eval/results/retrieval-2026-11-10.md`.
+The translation step matters for Chinese: with it, 19 of the 20 Chinese questions have the right page in the top five (MRR 0.858); without it, 18 (MRR 0.685). Of the four not in the top three, en-10, en-23 and en-24 come fourth and zh-18 is not in the top ten (per-question ranks in `app/eval/results/retrieval-2026-11-10.json`).
 
-**Real student questions**, 11 November 2026 (`npm run eval:retrieval -- --set student`). Classmates gave 20 questions in their own words (10 Chinese, 9 English, 1 Malay), copied as written with names and medical details removed and published with their consent. 15 have an answer in the 58 pages; 5 do not (appealing a special consideration decision, a new doctor's letter every semester, a parking permit, library hours, fees after changing course). On the 15, the method in use put the right page first for 9, in the top three for 13 and in the top five for 14 (MRR 0.724, against 0.839 on the team's questions): real wording is harder. The two it missed are an eExam that lost its internet connection and the Malay question. They are scored as their own set, so the table above stays comparable.
+**Real student questions**, 11 November 2026 (`npm run eval:retrieval -- --set student`). Students gave 20 questions in their own words (10 Chinese, 9 English, 1 Malay), copied as written with names and medical details removed and published with their consent. 15 have an answer in the 58 pages; 5 do not (appealing a special consideration decision, a new doctor's letter every semester, a parking permit, library hours, fees after changing course). On the 15, the method in use put the right page first for 9, in the top three for 13 and in the top five for 14 (MRR 0.724, against 0.839 on the team's questions): real wording is harder. Of the two not in the top three, the Malay question comes fifth; an eExam that lost its internet connection is not in the top ten. They are scored as their own set, so the table above stays comparable.
 
 
 **Smoke test**, 7 live questions through the running server, 10 November 2026, Claude Haiku 5.5 (`node scripts/smoke.js`):
@@ -119,9 +119,9 @@ Requests are limited to 20 per minute per address. Questions, their campus and s
 ## Limits
 
 - The library holds these 58 pages and nothing else: no unit guides, no faculty rules, no personal records, nothing behind a login.
-- Rules and dates change. The desk shows what the pages said when they were read (9 November 2026). Read the page, or ask Monash Connect, before you act. This is a prototype, not advice.
+- Rules and dates change. The desk shows what the pages said when they were read (9 November 2026). Read the page, or ask Monash Connect, before you act.
 - A quote can be exact and an answer still misapplied, for example a rule for the Australian campuses answered to a Malaysia student; the campus label on every source is there so you can see it.
-- The verifier rejects paraphrase, so some good answers are withheld. We prefer that to an unverified quote.
+- The verifier rejects paraphrase, so some good answers are withheld.
 - The local engine only selects sentences. It cannot combine two rules into one answer, and a Chinese question gets English sentences under a Chinese lead-in. Its threshold was set on the team's questions, so an unusual phrasing can be turned away.
 - The evaluation measures retrieval (was the right page found), not the written answers.
 

@@ -2,7 +2,7 @@
  * hero: Counter, the head and the ask field beside one real answer lying in the water light · nav: banner over a retracting bar · footer: index columns · imagery: the product (real screens) · signature: the real answer as a clear panel in the light, its key figures marked; beneath, the five steps as a timetable · refract: water/pool
  * axes: light/grotesk-sans/cool · posture: restrained · contrast: pass · fold: pass · v2.1.0 */
 /* Hallmark · pre-emit critique: P4 H4 E4 S4 R4 V4 · weakest: V, the light must not become decoration: it lives in two grounds only (the hero and the close), always away from the head, and the panels on it stay clear */
-/* Hallmark · waive 8 · anatomy.md try: what, how, moments, compare, figures, needs, close · the page teaches first (what WCAG is), then shows, then proves; the order is for a reader who has never heard of WCAG */
+/* Hallmark · waive 8 · anatomy.md try: what, how, moments, compare, figures, needs, close · the page teaches first (the words students meet), then shows, then proves; the order is for a reader who has never heard of special consideration */
 
 /* ---------- Scoped base (the scaffold's base.css, limited to the cover so the app screens keep Mantine's) ---------- */
 .hm { background: var(--color-paper); color: var(--color-ink-2); font-family: var(--font-body); font-size: var(--text-md); line-height: 1.6; }
@@ -58,7 +58,7 @@
 .hm-links a:hover { color: var(--color-accent); }
 .hm-bar .btn { min-height: 40px; padding-inline: var(--space-md); }
 
-/* ---------- Hero: Counter. The head, the lead that says what WCAG is, and the ask field on plain paper; one real answer lies in the light ---------- */
+/* ---------- Hero: Counter. The head, the lead that says what the desk holds, and the ask field on plain paper; one real answer lies in the light ---------- */
 .hm-hero { position: relative; overflow: clip; min-height: calc(100svh - 96px); display: grid; align-items: center; padding-block: var(--space-2xl) var(--space-3xl); }
 .hm-hero-grid { position: relative; display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--space-2xl); align-items: center; }
 .hm-hero-text .lead { max-width: 58ch; }
@@ -92,7 +92,7 @@
 .hm-section--band { background: var(--color-paper-2); }
 .hm-head { display: grid; gap: var(--space-md); margin-bottom: var(--space-2xl); }
 
-/* Rows parted by hairlines (what WCAG is; what it runs on): the term left, the explanation right */
+/* Rows parted by hairlines (the words; what it runs on): the term left, the explanation right */
 .hm-rows { border-top: 1px solid var(--color-rule); }
 .hm-row { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gap-columns); padding-block: var(--space-xl); border-bottom: 1px solid var(--color-rule); align-items: baseline; }
 .hm-row h3 { grid-column: 1 / 5; }

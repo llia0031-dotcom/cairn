@@ -1,4 +1,4 @@
-// Ingestion for the Monash corpus: pages saved from the owner's browser (corpus/monash-src/*.json) -> sections -> chunks
+// Ingestion for the Monash corpus: pages saved from a browser (corpus/monash-src/*.json) -> sections -> chunks
 // -> embeddings -> Orama index. The pages are Monash University's; they are not redistributed with the code.
 // Usage: npm run ingest:monash   (reads ../corpus/monash-src, writes data/documents.json, data/chunks.json, data/index.json)
 import fs from 'node:fs'
@@ -78,7 +78,7 @@ const db = await buildIndex(chunks.map((c, i) => ({ ...c, embedding: vectors[i] 
 fs.mkdirSync(DATA, { recursive: true })
 const fetched = [...new Set(documents.map((d) => d.fetched))].sort()
 const meta = {
-  source: 'Monash University student pages (monash.edu, monash.edu.my), read in the owner’s browser',
+  source: 'Monash University student pages (monash.edu, monash.edu.my), read in a browser',
   commit: fetched.at(-1), fetched,
   license: 'Copyright Monash University. Pages are not redistributed; the desk shows short excerpts with a link to the page they come from.',
   notice: 'Unofficial. Not affiliated with Monash University. Check the linked page or ask Monash Connect before relying on an answer.',

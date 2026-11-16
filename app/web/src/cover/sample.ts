@@ -1,5 +1,5 @@
 // The answer shown on the cover. Regenerated from a real run by scripts/sample.js, never typed by hand.
-// Run on 2026-11-10 with claude-haiku-5-5, campus my, corpus Monash University student pages (monash.edu, monash.edu.my), read in the owner’s browser@2026-11-09.
+// Run on 2026-11-10 with claude-haiku-5-5, campus my, corpus Monash University student pages (monash.edu, monash.edu.my), read in a browser@2026-11-09.
 export const SAMPLE = {
   date: "2026-11-10",
   campus: "my",

@@ -1,6 +1,6 @@
 // Reads an organisation's public pages in YOUR OWN browser and saves them as one JSON file for `npm run ingest:monash`.
 //
-// Why a browser: the Monash sites refuse scripted requests, and the pages are theirs. So a person opens the site,
+// The pages are read the way a visitor reads them: a person opens the site in a browser,
 // runs this once per site in the DevTools console, and gets one download. The pages stay on your machine
 // (corpus/monash-src/), never in the repository; the desk shows short excerpts of them with a link to each page.
 //
