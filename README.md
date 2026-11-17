@@ -127,5 +127,6 @@ Requests are limited to 20 per minute per address. Questions, their campus and s
 
 ## Notices
 
+- The code is released under the [MIT License](LICENSE), Copyright (c) 2026 Liang Liyuan and contributors.
 - Page text © Monash University, quoted in short excerpts with a link to each page; the pages are not redistributed. Cairn is unofficial and not affiliated with, endorsed by or maintained by Monash University. Rules change: read the linked page, or ask Monash Connect, before you act on an answer.
 - Models, libraries, fonts and design guidance are listed with versions and licences in `THIRD_PARTY_NOTICES.md`.
