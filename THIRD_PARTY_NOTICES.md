@@ -69,4 +69,4 @@ Build tools (not shipped): Vite 8, TypeScript 7, PostCSS with postcss-preset-man
 
 ## From our own TraceDesk project
 
-The quote-verification approach (`normalizeForMatch`, `verifyQuote`) and the API client pattern are reused from [TraceDesk Lite](https://github.com/Jason-d-e/tracedesk-lite), by the same team.
+The quote-verification approach (`normalizeForMatch`, `verifyQuote`) and the API client pattern are reused from [TraceDesk Lite](https://github.com/llia0031-dotcom/tracedesk-lite), by the same team.
